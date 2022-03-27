@@ -9,7 +9,7 @@ pipeline {
         }
         stage("Stage Two") {
             steps {
-                echo 'Hello, World web site with Spring'
+                echo 'Hello, World (Greeting) web site with Spring'
             }
         }
         stage("Checkout") {
@@ -23,11 +23,11 @@ pipeline {
                 sh "mvn clean compile"
             }
         }
-        stage("Unit Test") {
-            steps {
-                sh "mvn test"
-            }
-        }
+		stage("Unit Test") {
+			steps { 
+				sh "mvn test" 
+			} 
+		} 
 		stage("Package") {
             steps {
                 sh "mvn package"
