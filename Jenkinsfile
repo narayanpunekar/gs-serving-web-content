@@ -47,6 +47,7 @@ pipeline {
 		}
 		stage("Deploy to staging") {
 			steps { 
+				sh "docker container rm -f gs-serving-web-content-app" 
 				sh "docker run -d -p 8763:8080 --name gs-serving-web-content-app npunekar/gs-serving-web-content"
 			}
 		}
