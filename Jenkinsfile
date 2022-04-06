@@ -9,7 +9,7 @@ pipeline {
         }
         stage("Stage Two") {
             steps {
-                echo 'Hello, World web site with Spring'
+                echo 'Hello, World (Greeting) web site with Spring'
             }
         }
         stage("Checkout") {
@@ -47,6 +47,7 @@ pipeline {
 		}
 		stage("Deploy to staging") {
 			steps { 
+				sh "docker container rm -f gs-serving-web-content-app" 
 				sh "docker run -d -p 8763:8080 --name gs-serving-web-content-app npunekar/gs-serving-web-content"
 			}
 		}
